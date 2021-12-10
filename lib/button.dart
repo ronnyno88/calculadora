@@ -15,7 +15,7 @@ class Button extends StatelessWidget {
   }
 
   Button.purple({this.label, this.onTap}) {
-    bgColor = Colors.purple;
+    bgColor = Colors.cyan;
   }
 
   Button.blue({this.label, this.onTap}) {
@@ -24,19 +24,22 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: Container(
-          color: bgColor,
-          child: Center(
-            child: Text(
-              label!,
-              style: TextStyle(color: textColor),
+    return GestureDetector(
+    onTap: onTap,
+      child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(50),
+            child: Container(
+              color: bgColor,
+              child: Center(
+                child: Text(
+                  label!,
+                  style: TextStyle(color: textColor, fontSize: 30),
+                ),
+              ),
             ),
           ),
-        ),
       ),
     );
   }
